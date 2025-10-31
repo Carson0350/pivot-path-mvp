@@ -125,41 +125,52 @@ import Textarea from './components/ui/Textarea';
         </pre>
       </div>
 
-      <div>
+      <div className="mb-6">
         <h3 className="text-xl font-semibold text-white mb-2">Modal Component</h3>
         <pre className="text-green-400 text-sm overflow-x-auto">
           <code>{`import Modal from './components/ui/Modal';
 
 const [isOpen, setIsOpen] = useState(false);
 
-// Basic modal
 <Modal
   isOpen={isOpen}
   onClose={() => setIsOpen(false)}
   title="Modal Title"
->
-  <p>Modal content goes here</p>
-</Modal>
-
-// With footer
-<Modal
-  isOpen={isOpen}
-  onClose={() => setIsOpen(false)}
-  title="Confirm Action"
-  size="sm"
+  size="md"
   footer={
-    <div className="flex justify-end gap-3">
-      <Button variant="ghost" onClick={() => setIsOpen(false)}>
-        Cancel
-      </Button>
-      <Button onClick={handleConfirm}>
-        Confirm
-      </Button>
-    </div>
+    <Button onClick={handleSubmit}>Submit</Button>
   }
 >
-  <p>Are you sure?</p>
+  <p>Modal content goes here</p>
 </Modal>`}</code>
+        </pre>
+      </div>
+
+      <div>
+        <h3 className="text-xl font-semibold text-white mb-2">Accordion Component</h3>
+        <pre className="text-green-400 text-sm overflow-x-auto">
+          <code>{`import Accordion from './components/ui/Accordion';
+
+const items = [
+  {
+    title: 'Question 1',
+    content: 'Answer to question 1'
+  },
+  {
+    title: 'Question 2',
+    content: 'Answer to question 2'
+  }
+];
+
+// Basic accordion
+<Accordion items={items} />
+
+// With default open & allow multiple
+<Accordion 
+  items={items}
+  defaultOpen={0}
+  allowMultiple
+/>`}</code>
         </pre>
       </div>
     </section>
