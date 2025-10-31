@@ -1,58 +1,45 @@
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+
+// Lazy load page components
+const Home = lazy(() => import('./pages/Home'));
+const Services = lazy(() => import('./pages/Services'));
+const About = lazy(() => import('./pages/About'));
+const HowItWorks = lazy(() => import('./pages/HowItWorks'));
+const Contact = lazy(() => import('./pages/Contact'));
+const ThankYou = lazy(() => import('./pages/ThankYou'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+// Loading component
+function LoadingSpinner() {
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-slate-50">
+      <div className="text-center">
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900"></div>
+        <p className="mt-4 text-slate-600">Loading...</p>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-grow bg-slate-50 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
-              Welcome to Pivot Path
-            </h1>
-            <p className="text-xl text-slate-700 max-w-2xl mx-auto">
-              Career transition coaching for tech professionals. Your journey to a new career
-              starts here.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-blue-900 mb-2">Expert Guidance</h3>
-              <p className="text-slate-600">
-                Get personalized coaching from someone who&apos;s successfully navigated career
-                transitions.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-cyan-600 mb-2">LinkedIn Mastery</h3>
-              <p className="text-slate-600">
-                Learn proven strategies to optimize your profile and land your next role fast.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-orange-500 mb-2">Affordable Pricing</h3>
-              <p className="text-slate-600">
-                Professional coaching without the $10K price tag. Plans starting at $299.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="/contact"
-              className="inline-block bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors text-lg"
-            >
-              Schedule Free Consultation
-            </a>
-          </div>
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="services" element={<Services />} />
+            <Route path="about" element={<About />} />
+            <Route path="how-it-works" element={<HowItWorks />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="thank-you" element={<ThankYou />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 }
 

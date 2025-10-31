@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,49 +14,49 @@ function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="text-2xl font-bold text-blue-900">
+            <Link to="/" className="text-2xl font-bold text-blue-900">
               Pivot Path
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-slate-700 hover:text-blue-900 font-medium transition-colors"
             >
               Home
-            </a>
-            <a
-              href="/services"
+            </Link>
+            <Link
+              to="/services"
               className="text-slate-700 hover:text-blue-900 font-medium transition-colors"
             >
               Services
-            </a>
-            <a
-              href="/about"
+            </Link>
+            <Link
+              to="/about"
               className="text-slate-700 hover:text-blue-900 font-medium transition-colors"
             >
               About
-            </a>
-            <a
-              href="/how-it-works"
+            </Link>
+            <Link
+              to="/how-it-works"
               className="text-slate-700 hover:text-blue-900 font-medium transition-colors"
             >
               How It Works
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               className="text-slate-700 hover:text-blue-900 font-medium transition-colors"
             >
               Contact
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               className="bg-blue-900 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors"
             >
               Get Started
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,42 +103,48 @@ function Header() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 space-y-2">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="block px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-blue-900 rounded-md font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
-            </a>
-            <a
-              href="/services"
+            </Link>
+            <Link
+              to="/services"
               className="block px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-blue-900 rounded-md font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
-            </a>
-            <a
-              href="/about"
+            </Link>
+            <Link
+              to="/about"
               className="block px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-blue-900 rounded-md font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               About
-            </a>
-            <a
-              href="/how-it-works"
+            </Link>
+            <Link
+              to="/how-it-works"
               className="block px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-blue-900 rounded-md font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               How It Works
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               className="block px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-blue-900 rounded-md font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               className="block mx-4 mt-4 bg-blue-900 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Get Started
-            </a>
+            </Link>
           </div>
         )}
       </nav>
