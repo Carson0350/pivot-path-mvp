@@ -87,7 +87,7 @@ import Textarea from './components/ui/Textarea';
         </pre>
       </div>
 
-      <div>
+      <div className="mb-6">
         <h3 className="text-xl font-semibold text-white mb-2">Badge Component</h3>
         <pre className="text-green-400 text-sm overflow-x-auto">
           <code>{`import Badge from './components/ui/Badge';
@@ -105,6 +105,32 @@ import Textarea from './components/ui/Textarea';
 // Rounded (pill shape)
 <Badge variant="primary" rounded>New</Badge>
 <Badge variant="success" rounded>Popular</Badge>`}</code>
+        </pre>
+      </div>
+
+      <div>
+        <h3 className="text-xl font-semibold text-white mb-2">Alert Component</h3>
+        <pre className="text-green-400 text-sm overflow-x-auto">
+          <code>{`import Alert from './components/ui/Alert';
+
+// Basic alerts
+<Alert variant="success">
+  Profile updated successfully!
+</Alert>
+
+<Alert variant="warning">
+  Session expiring soon.
+</Alert>
+
+// With title
+<Alert variant="info" title="Pro Tip">
+  Add keywords to improve visibility.
+</Alert>
+
+// Dismissible
+<Alert variant="success" dismissible onDismiss={handleDismiss}>
+  You can close this alert.
+</Alert>`}</code>
         </pre>
       </div>
     </section>

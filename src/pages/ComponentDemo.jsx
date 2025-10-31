@@ -2,6 +2,7 @@ import ButtonDemo from '../components/demos/ButtonDemo';
 import CardDemo from '../components/demos/CardDemo';
 import InputDemo from '../components/demos/InputDemo';
 import BadgeDemo from '../components/demos/BadgeDemo';
+import AlertDemo from '../components/demos/AlertDemo';
 import CodeExamples from '../components/demos/CodeExamples';
 
 function ComponentDemo() {
@@ -16,6 +17,7 @@ function ComponentDemo() {
         <CardDemo />
         <InputDemo />
         <BadgeDemo />
+        <AlertDemo />
         <CodeExamples />
       </div>
     </div>
