@@ -1,71 +1,57 @@
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 p-8 font-sans">
-      <div className="max-w-4xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
-            Pivot Path MVP
-          </h1>
-          <p className="text-xl text-slate-700">
-            Design System Configuration Test
-          </p>
-        </div>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      
+      <main className="flex-grow bg-slate-50 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+              Welcome to Pivot Path
+            </h1>
+            <p className="text-xl text-slate-700 max-w-2xl mx-auto">
+              Career transition coaching for tech professionals. Your journey to a new career
+              starts here.
+            </p>
+          </div>
 
-        {/* Brand Colors */}
-        <div className="animate-slide-in-left">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">Brand Colors</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-blue-900 text-white p-6 rounded-lg">
-              <p className="font-semibold">Deep Blue (Primary)</p>
-              <p className="text-sm">#1E3A8A</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-blue-900 mb-2">Expert Guidance</h3>
+              <p className="text-slate-600">
+                Get personalized coaching from someone who&apos;s successfully navigated career
+                transitions.
+              </p>
             </div>
-            <div className="bg-cyan-600 text-white p-6 rounded-lg">
-              <p className="font-semibold">Tech Teal (Secondary)</p>
-              <p className="text-sm">#06B6D4</p>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-cyan-600 mb-2">LinkedIn Mastery</h3>
+              <p className="text-slate-600">
+                Learn proven strategies to optimize your profile and land your next role fast.
+              </p>
             </div>
-            <div className="bg-orange-500 text-white p-6 rounded-lg">
-              <p className="font-semibold">Warm Orange (Accent)</p>
-              <p className="text-sm">#F97316</p>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-orange-500 mb-2">Affordable Pricing</h3>
+              <p className="text-slate-600">
+                Professional coaching without the $10K price tag. Plans starting at $299.
+              </p>
             </div>
           </div>
-        </div>
 
-        {/* Typography */}
-        <div className="animate-slide-in-right">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">Typography (Inter)</h2>
-          <div className="space-y-2 bg-white p-6 rounded-lg shadow">
-            <p className="text-4xl font-extrabold">Heading 1 - Extrabold</p>
-            <p className="text-3xl font-bold">Heading 2 - Bold</p>
-            <p className="text-2xl font-semibold">Heading 3 - Semibold</p>
-            <p className="text-lg font-medium">Body Large - Medium</p>
-            <p className="text-base">Body Regular - Normal</p>
+          <div className="text-center">
+            <a
+              href="/contact"
+              className="inline-block bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors text-lg"
+            >
+              Schedule Free Consultation
+            </a>
           </div>
         </div>
+      </main>
 
-        {/* Animations */}
-        <div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">Custom Animations</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-white p-6 rounded-lg shadow animate-fade-in">
-              <p className="font-semibold">Fade In</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow animate-slide-in-left">
-              <p className="font-semibold">Slide In Left</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow animate-slide-in-right">
-              <p className="font-semibold">Slide In Right</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Success Message */}
-        <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
-          <p className="text-green-800 font-semibold">
-            ✓ TailwindCSS Design System Configured Successfully
-          </p>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
