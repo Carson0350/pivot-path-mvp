@@ -108,7 +108,7 @@ import Textarea from './components/ui/Textarea';
         </pre>
       </div>
 
-      <div>
+      <div className="mb-6">
         <h3 className="text-xl font-semibold text-white mb-2">Alert Component</h3>
         <pre className="text-green-400 text-sm overflow-x-auto">
           <code>{`import Alert from './components/ui/Alert';
@@ -118,19 +118,48 @@ import Textarea from './components/ui/Textarea';
   Profile updated successfully!
 </Alert>
 
-<Alert variant="warning">
-  Session expiring soon.
-</Alert>
-
-// With title
-<Alert variant="info" title="Pro Tip">
+// With title & dismissible
+<Alert variant="info" title="Pro Tip" dismissible>
   Add keywords to improve visibility.
-</Alert>
-
-// Dismissible
-<Alert variant="success" dismissible onDismiss={handleDismiss}>
-  You can close this alert.
 </Alert>`}</code>
+        </pre>
+      </div>
+
+      <div>
+        <h3 className="text-xl font-semibold text-white mb-2">Modal Component</h3>
+        <pre className="text-green-400 text-sm overflow-x-auto">
+          <code>{`import Modal from './components/ui/Modal';
+
+const [isOpen, setIsOpen] = useState(false);
+
+// Basic modal
+<Modal
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  title="Modal Title"
+>
+  <p>Modal content goes here</p>
+</Modal>
+
+// With footer
+<Modal
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  title="Confirm Action"
+  size="sm"
+  footer={
+    <div className="flex justify-end gap-3">
+      <Button variant="ghost" onClick={() => setIsOpen(false)}>
+        Cancel
+      </Button>
+      <Button onClick={handleConfirm}>
+        Confirm
+      </Button>
+    </div>
+  }
+>
+  <p>Are you sure?</p>
+</Modal>`}</code>
         </pre>
       </div>
     </section>
