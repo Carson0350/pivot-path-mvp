@@ -52,12 +52,6 @@ function Header() {
               Contact
             </Link>
             <Link
-              to="/components"
-              className="text-orange-500 hover:text-orange-600 font-medium transition-colors"
-            >
-              Components
-            </Link>
-            <Link
               to="/contact"
               className="bg-blue-900 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors"
             >
