@@ -5,6 +5,7 @@ import BadgeDemo from '../components/demos/BadgeDemo';
 import AlertDemo from '../components/demos/AlertDemo';
 import ModalDemo from '../components/demos/ModalDemo';
 import AccordionDemo from '../components/demos/AccordionDemo';
+import LayoutDemo from '../components/demos/LayoutDemo';
 import CodeExamples from '../components/demos/CodeExamples';
 
 function ComponentDemo() {
@@ -22,6 +23,7 @@ function ComponentDemo() {
         <AlertDemo />
         <ModalDemo />
         <AccordionDemo />
+        <LayoutDemo />
         <CodeExamples />
       </div>
     </div>

@@ -146,31 +146,47 @@ const [isOpen, setIsOpen] = useState(false);
         </pre>
       </div>
 
-      <div>
+      <div className="mb-6">
         <h3 className="text-xl font-semibold text-white mb-2">Accordion Component</h3>
         <pre className="text-green-400 text-sm overflow-x-auto">
           <code>{`import Accordion from './components/ui/Accordion';
 
 const items = [
-  {
-    title: 'Question 1',
-    content: 'Answer to question 1'
-  },
-  {
-    title: 'Question 2',
-    content: 'Answer to question 2'
-  }
+  { title: 'Question 1', content: 'Answer 1' },
+  { title: 'Question 2', content: 'Answer 2' }
 ];
 
-// Basic accordion
-<Accordion items={items} />
+<Accordion items={items} defaultOpen={0} allowMultiple />`}</code>
+        </pre>
+      </div>
 
-// With default open & allow multiple
-<Accordion 
-  items={items}
-  defaultOpen={0}
-  allowMultiple
-/>`}</code>
+      <div>
+        <h3 className="text-xl font-semibold text-white mb-2">Layout Components</h3>
+        <pre className="text-green-400 text-sm overflow-x-auto">
+          <code>{`import Container from './components/ui/Container';
+import Section from './components/ui/Section';
+
+// Container with max-width
+<Container maxWidth="lg" centerContent>
+  <h1>Page Content</h1>
+</Container>
+
+// Section with background & spacing
+<Section background="gray" spacing="lg">
+  <Container maxWidth="lg" centerContent>
+    <h2>Section Content</h2>
+  </Container>
+</Section>
+
+// Combined layout pattern
+<Section background="blue" spacing="xl">
+  <Container maxWidth="md" centerContent>
+    <div className="text-center">
+      <h1>Hero Title</h1>
+      <p>Hero description</p>
+    </div>
+  </Container>
+</Section>`}</code>
         </pre>
       </div>
     </section>
