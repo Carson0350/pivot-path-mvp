@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow specific pages
+Disallow: /thank-you
+Disallow: /components
+
+# Sitemap location
+Sitemap: https://carson0350.github.io/pivot-path-mvp/sitemap.xml
