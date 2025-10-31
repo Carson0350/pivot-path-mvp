@@ -1,5 +1,6 @@
 import ButtonDemo from '../components/demos/ButtonDemo';
 import CardDemo from '../components/demos/CardDemo';
+import InputDemo from '../components/demos/InputDemo';
 import CodeExamples from '../components/demos/CodeExamples';
 
 function ComponentDemo() {
@@ -12,6 +13,7 @@ function ComponentDemo() {
 
         <ButtonDemo />
         <CardDemo />
+        <InputDemo />
         <CodeExamples />
       </div>
     </div>

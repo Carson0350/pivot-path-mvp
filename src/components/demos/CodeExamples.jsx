@@ -20,7 +20,7 @@ function CodeExamples() {
         </pre>
       </div>
 
-      <div>
+      <div className="mb-6">
         <h3 className="text-xl font-semibold text-white mb-2">Card Component</h3>
         <pre className="text-green-400 text-sm overflow-x-auto">
           <code>{`import Card from './components/ui/Card';
@@ -50,6 +50,40 @@ function CodeExamples() {
 <Card hoverable onClick={handleClick}>
   <Card.Body>Interactive card</Card.Body>
 </Card>`}</code>
+        </pre>
+      </div>
+
+      <div>
+        <h3 className="text-xl font-semibold text-white mb-2">Input Components</h3>
+        <pre className="text-green-400 text-sm overflow-x-auto">
+          <code>{`import Input from './components/ui/Input';
+import Textarea from './components/ui/Textarea';
+
+// Basic input
+<Input
+  label="Email"
+  type="email"
+  placeholder="you@example.com"
+  value={email}
+  onChange={handleChange}
+  required
+/>
+
+// With validation
+<Input
+  label="Username"
+  error="Username is already taken"
+  helperText="Choose a unique username"
+/>
+
+// Textarea
+<Textarea
+  label="Message"
+  rows={4}
+  placeholder="Enter your message..."
+  value={message}
+  onChange={handleChange}
+/>`}</code>
         </pre>
       </div>
     </section>
