@@ -53,7 +53,7 @@ function CodeExamples() {
         </pre>
       </div>
 
-      <div>
+      <div className="mb-6">
         <h3 className="text-xl font-semibold text-white mb-2">Input Components</h3>
         <pre className="text-green-400 text-sm overflow-x-auto">
           <code>{`import Input from './components/ui/Input';
@@ -84,6 +84,27 @@ import Textarea from './components/ui/Textarea';
   value={message}
   onChange={handleChange}
 />`}</code>
+        </pre>
+      </div>
+
+      <div>
+        <h3 className="text-xl font-semibold text-white mb-2">Badge Component</h3>
+        <pre className="text-green-400 text-sm overflow-x-auto">
+          <code>{`import Badge from './components/ui/Badge';
+
+// Variants
+<Badge variant="success">Active</Badge>
+<Badge variant="warning">Pending</Badge>
+<Badge variant="danger">Suspended</Badge>
+
+// Sizes
+<Badge size="sm">Small</Badge>
+<Badge size="md">Medium</Badge>
+<Badge size="lg">Large</Badge>
+
+// Rounded (pill shape)
+<Badge variant="primary" rounded>New</Badge>
+<Badge variant="success" rounded>Popular</Badge>`}</code>
         </pre>
       </div>
     </section>
