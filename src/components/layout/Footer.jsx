@@ -48,6 +48,12 @@ function Footer() {
               >
                 Contact
               </a>
+              <a
+                href="/components"
+                className="block text-slate-400 hover:text-white transition-colors text-sm"
+              >
+                Component Library
+              </a>
             </nav>
           </div>
 
