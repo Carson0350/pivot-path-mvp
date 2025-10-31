@@ -92,6 +92,150 @@ function Home() {
           </div>
         </Container>
       </Section>
+
+      {/* Services Overview */}
+      <Section background="gray" spacing="xl">
+        <Container maxWidth="lg" centerContent>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Our Services
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Choose the service that fits your needs. All packages include personalized support and
+              proven strategies.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {/* LinkedIn Profile Review */}
+            <Card variant="elevated" hoverable>
+              <Card.Body>
+                <Badge variant="info" size="sm" className="mb-4">
+                  Most Popular
+                </Badge>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                  LinkedIn Profile Review
+                </h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-extrabold text-blue-900">$99</span>
+                  <span className="text-slate-600 ml-2">one-time</span>
+                </div>
+                <ul className="space-y-3 mb-6 text-slate-600">
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>Comprehensive profile analysis</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>Keyword optimization</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>Headline & summary rewrite</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>1-hour consultation call</span>
+                  </li>
+                </ul>
+                <Link to="/services">
+                  <Button variant="outline" fullWidth>
+                    Learn More
+                  </Button>
+                </Link>
+              </Card.Body>
+            </Card>
+
+            {/* Career Coaching Package */}
+            <Card variant="elevated" hoverable className="border-2 border-orange-500">
+              <Card.Body>
+                <Badge variant="warning" size="sm" className="mb-4">
+                  Best Value
+                </Badge>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                  Career Coaching Package
+                </h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-extrabold text-blue-900">$299</span>
+                  <span className="text-slate-600 ml-2">4 weeks</span>
+                </div>
+                <ul className="space-y-3 mb-6 text-slate-600">
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>4 one-on-one coaching sessions</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>LinkedIn profile optimization</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>Resume review & enhancement</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>Job search strategy</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>Email support for 30 days</span>
+                  </li>
+                </ul>
+                <Link to="/services">
+                  <Button variant="primary" fullWidth>
+                    Get Started
+                  </Button>
+                </Link>
+              </Card.Body>
+            </Card>
+
+            {/* Resume Optimization */}
+            <Card variant="elevated" hoverable>
+              <Card.Body>
+                <Badge variant="secondary" size="sm" className="mb-4">
+                  Quick Win
+                </Badge>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Resume Optimization</h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-extrabold text-blue-900">$149</span>
+                  <span className="text-slate-600 ml-2">one-time</span>
+                </div>
+                <ul className="space-y-3 mb-6 text-slate-600">
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>Professional resume review</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>ATS optimization</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>Achievement highlighting</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>2-hour consultation</span>
+                  </li>
+                </ul>
+                <Link to="/services">
+                  <Button variant="outline" fullWidth>
+                    Learn More
+                  </Button>
+                </Link>
+              </Card.Body>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Link to="/services">
+              <Button variant="secondary" size="lg">
+                View All Services & Pricing
+              </Button>
+            </Link>
+          </div>
+        </Container>
+      </Section>
     </>
   );
 }
