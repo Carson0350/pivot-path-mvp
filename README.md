@@ -76,3 +76,7 @@ Push to `main` branch to trigger automatic deployment.
 ## 📄 License
 
 Private project - All rights reserved
+
+## 🌐 Live Site
+
+Visit the live site at: https://carson0350.github.io/pivot-path-mvp/
