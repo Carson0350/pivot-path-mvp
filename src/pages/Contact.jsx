@@ -7,6 +7,7 @@ import Input from '../components/ui/Input';
 import Textarea from '../components/ui/Textarea';
 import Card from '../components/ui/Card';
 import Alert from '../components/ui/Alert';
+import { trackFormSubmission } from '../utils/analytics';
 
 function Contact() {
   const navigate = useNavigate();
@@ -65,6 +66,9 @@ function Contact() {
 
     // In a real app, you'd send this to your backend
     console.log('Form submitted:', formData);
+
+    // Track form submission
+    trackFormSubmission('contact_form', true);
 
     // Navigate to thank you page
     navigate('/thank-you');
