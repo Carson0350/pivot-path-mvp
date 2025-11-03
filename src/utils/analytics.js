@@ -105,3 +105,42 @@ export const trackCalendlyBookingCompleted = (source = 'unknown', eventData = {}
     timestamp: new Date().toISOString(),
   });
 };
+
+/**
+ * Track newsletter signup attempt
+ * @param {string} source - Source location of the form
+ * @param {boolean} hasName - Whether first name was provided
+ */
+export const trackNewsletterSignupAttempted = (source = 'unknown', hasName = false) => {
+  trackEvent('newsletter_signup_attempted', {
+    source: source,
+    has_name: hasName,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track newsletter signup success
+ * @param {string} source - Source location of the form
+ * @param {boolean} hasName - Whether first name was provided
+ */
+export const trackNewsletterSignupCompleted = (source = 'unknown', hasName = false) => {
+  trackEvent('newsletter_signup_completed', {
+    source: source,
+    has_name: hasName,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track newsletter signup error
+ * @param {string} source - Source location of the form
+ * @param {string} error - Error message
+ */
+export const trackNewsletterSignupError = (source = 'unknown', error = '') => {
+  trackEvent('newsletter_signup_error', {
+    source: source,
+    error: error,
+    timestamp: new Date().toISOString(),
+  });
+};
