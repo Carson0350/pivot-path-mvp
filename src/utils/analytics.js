@@ -8,14 +8,16 @@
  * trackPageView('/services');
  */
 
+import ReactGA from 'react-ga4';
+
 /**
  * Track a custom event
  * @param {string} eventName - Name of the event
  * @param {object} eventParams - Additional parameters for the event
  */
 export const trackEvent = (eventName, eventParams = {}) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, eventParams);
+  if (import.meta.env.PROD && import.meta.env.VITE_GA_MEASUREMENT_ID) {
+    ReactGA.event(eventName, eventParams);
   }
 };
 
@@ -24,10 +26,8 @@ export const trackEvent = (eventName, eventParams = {}) => {
  * @param {string} path - Page path
  */
 export const trackPageView = (path) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', 'G-XXXXXXXXXX', {
-      page_path: path,
-    });
+  if (import.meta.env.PROD && import.meta.env.VITE_GA_MEASUREMENT_ID) {
+    ReactGA.send({ hitType: 'pageview', page: path });
   }
 };
 
@@ -78,5 +78,119 @@ export const trackServiceSelection = (serviceName, price = '') => {
   trackEvent('service_selection', {
     service_name: serviceName,
     price: price,
+  });
+};
+
+/**
+ * Track Calendly modal opened
+ * @param {string} source - Source page/button that triggered modal
+ */
+export const trackCalendlyModalOpened = (source = 'unknown') => {
+  trackEvent('calendly_modal_opened', {
+    source: source,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track Calendly booking completed
+ * @param {string} source - Source page/button that triggered modal
+ * @param {object} eventData - Event data from Calendly
+ */
+export const trackCalendlyBookingCompleted = (source = 'unknown', eventData = {}) => {
+  trackEvent('calendly_booking_completed', {
+    source: source,
+    event_uri: eventData.event_uri || '',
+    invitee_uri: eventData.invitee_uri || '',
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track newsletter signup attempt
+ * @param {string} source - Source location of the form
+ * @param {boolean} hasName - Whether first name was provided
+ */
+export const trackNewsletterSignupAttempted = (source = 'unknown', hasName = false) => {
+  trackEvent('newsletter_signup_attempted', {
+    source: source,
+    has_name: hasName,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track newsletter signup success
+ * @param {string} source - Source location of the form
+ * @param {boolean} hasName - Whether first name was provided
+ */
+export const trackNewsletterSignupCompleted = (source = 'unknown', hasName = false) => {
+  trackEvent('newsletter_signup_completed', {
+    source: source,
+    has_name: hasName,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track newsletter signup error
+ * @param {string} source - Source location of the form
+ * @param {string} error - Error message
+ */
+export const trackNewsletterSignupError = (source = 'unknown', error = '') => {
+  trackEvent('newsletter_signup_error', {
+    source: source,
+    error: error,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track lead magnet form viewed
+ * @param {string} source - Source page where form is displayed
+ */
+export const trackLeadMagnetFormViewed = (source = 'unknown') => {
+  trackEvent('lead_magnet_form_viewed', {
+    source: source,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track lead magnet email submitted
+ * @param {string} source - Source page of submission
+ * @param {boolean} hasName - Whether first name was provided
+ */
+export const trackLeadMagnetEmailSubmitted = (source = 'unknown', hasName = false) => {
+  trackEvent('lead_magnet_email_submitted', {
+    source: source,
+    has_name: hasName,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track lead magnet downloaded
+ * @param {string} source - Source page of download
+ * @param {string} pdfName - Name of the PDF file
+ */
+export const trackLeadMagnetDownloaded = (source = 'unknown', pdfName = '') => {
+  trackEvent('lead_magnet_downloaded', {
+    source: source,
+    pdf_name: pdfName,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track lead magnet conversion completed
+ * @param {string} source - Source page
+ * @param {boolean} hasName - Whether first name was provided
+ */
+export const trackLeadMagnetConversionCompleted = (source = 'unknown', hasName = false) => {
+  trackEvent('lead_magnet_conversion_completed', {
+    source: source,
+    has_name: hasName,
+    timestamp: new Date().toISOString(),
   });
 };

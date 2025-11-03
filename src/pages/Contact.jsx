@@ -7,10 +7,12 @@ import Input from '../components/ui/Input';
 import Textarea from '../components/ui/Textarea';
 import Card from '../components/ui/Card';
 import Alert from '../components/ui/Alert';
+import CalendlyModal from '../components/integrations/CalendlyModal';
 import { trackFormSubmission } from '../utils/analytics';
 
 function Contact() {
   const navigate = useNavigate();
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -61,17 +63,38 @@ function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const formspreeId = import.meta.env.VITE_FORMSPREE_FORM_ID;
 
-    // In a real app, you'd send this to your backend
-    console.log('Form submitted:', formData);
+    try {
+      // Submit to Formspree
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Track form submission
-    trackFormSubmission('contact_form', true);
+      if (response.ok) {
+        // Track successful submission
+        trackFormSubmission('contact_form', true);
 
-    // Navigate to thank you page
-    navigate('/thank-you');
+        // Navigate to thank you page
+        navigate('/thank-you');
+      } else {
+        // Handle error
+        const errorData = await response.json();
+        console.error('Form submission error:', errorData);
+        trackFormSubmission('contact_form', false);
+        setErrors({ submit: 'Failed to send message. Please try again or email us directly.' });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      trackFormSubmission('contact_form', false);
+      setErrors({ submit: 'Failed to send message. Please try again or email us directly.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -170,6 +193,12 @@ function Contact() {
                       required
                     />
 
+                    {errors.submit && (
+                      <Alert variant="error">
+                        {errors.submit}
+                      </Alert>
+                    )}
+
                     <Alert variant="info">
                       <strong>What happens next?</strong> I'll review your message and send you a
                       calendar link within 24 hours to schedule your free 30-minute consultation.
@@ -190,6 +219,24 @@ function Contact() {
 
             {/* Contact Info Sidebar */}
             <div className="space-y-6">
+              {/* Quick Book Card */}
+              <Card variant="bordered">
+                <Card.Body>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">⚡ Quick Book</h3>
+                  <p className="text-slate-600 mb-4 text-sm">
+                    Skip the form and book your consultation instantly
+                  </p>
+                  <Button
+                    variant="primary"
+                    size="md"
+                    fullWidth
+                    onClick={() => setIsCalendlyOpen(true)}
+                  >
+                    Book Now with Calendly
+                  </Button>
+                </Card.Body>
+              </Card>
+
               <Card variant="bordered">
                 <Card.Body>
                   <h3 className="text-xl font-bold text-slate-900 mb-4">Contact Information</h3>
@@ -244,6 +291,13 @@ function Contact() {
           </div>
         </Container>
       </Section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+        source="contact-quick-book"
+      />
     </>
   );
 }
