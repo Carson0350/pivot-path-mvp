@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaPartyHorn } from 'react-icons/fa';
+import { FaCheckCircle } from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
@@ -34,7 +34,7 @@ function ThankYou() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
-              Thank You! <Icon icon={FaPartyHorn} size="lg" className="inline" />
+              Thank You! <Icon icon={FaCheckCircle} size="lg" className="inline text-green-600" />
             </h1>
             <p className="text-xl text-slate-700 mb-8">
               Your consultation request has been received. I'm excited to help you with your career
