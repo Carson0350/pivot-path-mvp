@@ -144,3 +144,53 @@ export const trackNewsletterSignupError = (source = 'unknown', error = '') => {
     timestamp: new Date().toISOString(),
   });
 };
+
+/**
+ * Track lead magnet form viewed
+ * @param {string} source - Source page where form is displayed
+ */
+export const trackLeadMagnetFormViewed = (source = 'unknown') => {
+  trackEvent('lead_magnet_form_viewed', {
+    source: source,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track lead magnet email submitted
+ * @param {string} source - Source page of submission
+ * @param {boolean} hasName - Whether first name was provided
+ */
+export const trackLeadMagnetEmailSubmitted = (source = 'unknown', hasName = false) => {
+  trackEvent('lead_magnet_email_submitted', {
+    source: source,
+    has_name: hasName,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track lead magnet downloaded
+ * @param {string} source - Source page of download
+ * @param {string} pdfName - Name of the PDF file
+ */
+export const trackLeadMagnetDownloaded = (source = 'unknown', pdfName = '') => {
+  trackEvent('lead_magnet_downloaded', {
+    source: source,
+    pdf_name: pdfName,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track lead magnet conversion completed
+ * @param {string} source - Source page
+ * @param {boolean} hasName - Whether first name was provided
+ */
+export const trackLeadMagnetConversionCompleted = (source = 'unknown', hasName = false) => {
+  trackEvent('lead_magnet_conversion_completed', {
+    source: source,
+    has_name: hasName,
+    timestamp: new Date().toISOString(),
+  });
+};

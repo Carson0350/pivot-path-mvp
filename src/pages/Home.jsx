@@ -6,6 +6,7 @@ import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import CalendlyModal from '../components/integrations/CalendlyModal';
+import LeadMagnetDownload from '../components/forms/LeadMagnetDownload';
 
 function Home() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
@@ -250,6 +251,52 @@ function Home() {
               </Button>
             </Link>
           </div>
+        </Container>
+      </Section>
+
+      {/* Lead Magnet Section */}
+      <Section background="blue" spacing="xl">
+        <Container maxWidth="md" centerContent>
+          <div className="text-center mb-8">
+            <Badge variant="secondary" size="md" rounded className="mb-4">
+              🎁 Free Resource
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Get Your Free LinkedIn Mastery Checklist
+            </h2>
+            <p className="text-lg text-slate-700 max-w-2xl mx-auto mb-6">
+              Download our comprehensive guide with 30+ actionable tips to optimize your LinkedIn
+              profile, grow your network, and land more interviews.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 mb-8 text-slate-700">
+              <div className="flex items-center gap-2">
+                <span className="text-green-600 text-xl">✓</span>
+                <span>Profile Optimization</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-green-600 text-xl">✓</span>
+                <span>Connection Strategy</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-green-600 text-xl">✓</span>
+                <span>Content Tips</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-green-600 text-xl">✓</span>
+                <span>Job Search Tactics</span>
+              </div>
+            </div>
+          </div>
+
+          <Card variant="elevated">
+            <Card.Body>
+              <LeadMagnetDownload source="homepage" />
+            </Card.Body>
+          </Card>
+
+          <p className="text-sm text-slate-600 text-center mt-6">
+            Join 500+ tech professionals who've transformed their LinkedIn presence
+          </p>
         </Container>
       </Section>
 
