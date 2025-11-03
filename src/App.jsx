@@ -1,5 +1,6 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import ReactGA from 'react-ga4';
 import Layout from './components/layout/Layout';
 
 // Lazy load page components
@@ -24,9 +25,29 @@ function LoadingSpinner() {
   );
 }
 
+// Initialize GA4 (production only)
+if (import.meta.env.PROD && import.meta.env.VITE_GA_MEASUREMENT_ID) {
+  ReactGA.initialize(import.meta.env.VITE_GA_MEASUREMENT_ID);
+}
+
+// Component to track page views
+function PageViewTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Track page view on route change (production only)
+    if (import.meta.env.PROD && import.meta.env.VITE_GA_MEASUREMENT_ID) {
+      ReactGA.send({ hitType: 'pageview', page: location.pathname + location.search });
+    }
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter basename="/pivot-path-mvp">
+      <PageViewTracker />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Layout />}>

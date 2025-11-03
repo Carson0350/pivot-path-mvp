@@ -8,14 +8,16 @@
  * trackPageView('/services');
  */
 
+import ReactGA from 'react-ga4';
+
 /**
  * Track a custom event
  * @param {string} eventName - Name of the event
  * @param {object} eventParams - Additional parameters for the event
  */
 export const trackEvent = (eventName, eventParams = {}) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, eventParams);
+  if (import.meta.env.PROD && import.meta.env.VITE_GA_MEASUREMENT_ID) {
+    ReactGA.event(eventName, eventParams);
   }
 };
 
@@ -24,10 +26,8 @@ export const trackEvent = (eventName, eventParams = {}) => {
  * @param {string} path - Page path
  */
 export const trackPageView = (path) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', 'G-XXXXXXXXXX', {
-      page_path: path,
-    });
+  if (import.meta.env.PROD && import.meta.env.VITE_GA_MEASUREMENT_ID) {
+    ReactGA.send({ hitType: 'pageview', page: path });
   }
 };
 
