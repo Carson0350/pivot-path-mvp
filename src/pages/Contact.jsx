@@ -63,17 +63,38 @@ function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const formspreeId = import.meta.env.VITE_FORMSPREE_FORM_ID;
 
-    // In a real app, you'd send this to your backend
-    console.log('Form submitted:', formData);
+    try {
+      // Submit to Formspree
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Track form submission
-    trackFormSubmission('contact_form', true);
+      if (response.ok) {
+        // Track successful submission
+        trackFormSubmission('contact_form', true);
 
-    // Navigate to thank you page
-    navigate('/thank-you');
+        // Navigate to thank you page
+        navigate('/thank-you');
+      } else {
+        // Handle error
+        const errorData = await response.json();
+        console.error('Form submission error:', errorData);
+        trackFormSubmission('contact_form', false);
+        setErrors({ submit: 'Failed to send message. Please try again or email us directly.' });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      trackFormSubmission('contact_form', false);
+      setErrors({ submit: 'Failed to send message. Please try again or email us directly.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -171,6 +192,12 @@ function Contact() {
                       helperText="The more details you provide, the more helpful our call will be"
                       required
                     />
+
+                    {errors.submit && (
+                      <Alert variant="error">
+                        {errors.submit}
+                      </Alert>
+                    )}
 
                     <Alert variant="info">
                       <strong>What happens next?</strong> I'll review your message and send you a
