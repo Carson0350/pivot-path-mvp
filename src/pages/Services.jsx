@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBuilding, FaFire } from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import Accordion from '../components/ui/Accordion';
+import Icon from '../components/ui/Icon';
 import CalendlyModal from '../components/integrations/CalendlyModal';
 
 function Services() {
@@ -125,7 +127,7 @@ function Services() {
             <Card variant="elevated" hoverable className="border-2 border-orange-500 relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <Badge variant="warning" size="lg" rounded>
-                  🔥 Best Value
+                  <Icon icon={FaFire} size="sm" className="inline mr-1" /> Best Value
                 </Badge>
               </div>
               <Card.Body className="pt-8">
@@ -250,7 +252,7 @@ function Services() {
         <Container maxWidth="lg" centerContent>
           <div className="text-center">
             <Badge variant="warning" size="md" rounded className="mb-4">
-              🏢 For Companies
+              <Icon icon={FaBuilding} size="sm" className="inline mr-1" /> For Companies
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Need Outplacement Services for Your Team?

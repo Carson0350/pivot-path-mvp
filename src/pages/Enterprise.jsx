@@ -1,11 +1,26 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  FaShieldAlt,
+  FaStar,
+  FaBullseye,
+  FaDollarSign,
+  FaBriefcase,
+  FaChartBar,
+  FaBolt,
+  FaCalendar,
+  FaMoneyBillWave,
+  FaUpload,
+  FaUsers,
+  FaFire,
+} from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import Accordion from '../components/ui/Accordion';
+import Icon from '../components/ui/Icon';
 import CalendlyModal from '../components/integrations/CalendlyModal';
 
 function Enterprise() {
@@ -130,19 +145,27 @@ function Enterprise() {
             {/* Key Benefits */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
               <div className="text-center">
-                <div className="text-3xl mb-2">🛡️</div>
+                <div className="flex justify-center mb-2">
+                  <Icon icon={FaShieldAlt} size="lg" color="primary" label="Reduce liability" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">Reduce Liability</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-2">⭐</div>
+                <div className="flex justify-center mb-2">
+                  <Icon icon={FaStar} size="lg" color="accent" label="Maintain employer brand" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">Maintain Employer Brand</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-2">🎯</div>
+                <div className="flex justify-center mb-2">
+                  <Icon icon={FaBullseye} size="lg" color="primary" label="Support employee success" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">Support Employee Success</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-2">💰</div>
+                <div className="flex justify-center mb-2">
+                  <Icon icon={FaDollarSign} size="lg" color="secondary" label="Flexible pricing" />
+                </div>
                 <p className="text-sm font-semibold text-slate-700">Flexible Pricing</p>
               </div>
             </div>
@@ -186,7 +209,9 @@ function Enterprise() {
             {/* Tech-Specialized Expertise */}
             <Card variant="elevated" hoverable>
               <Card.Body className="text-center">
-                <div className="text-5xl mb-4">💼</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaBriefcase} size="xl" color="primary" label="Tech-specialized expertise" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">
                   Tech-Specialized Expertise
                 </h3>
@@ -200,7 +225,9 @@ function Enterprise() {
             {/* Flexible Pricing Models */}
             <Card variant="elevated" hoverable>
               <Card.Body className="text-center">
-                <div className="text-5xl mb-4">📊</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaChartBar} size="xl" color="primary" label="Flexible pricing models" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Flexible Pricing Models</h3>
                 <p className="text-slate-600">
                   Pay-per-use or retainer options to fit your budget. No hidden fees, no long-term
@@ -212,7 +239,9 @@ function Enterprise() {
             {/* Fast Results */}
             <Card variant="elevated" hoverable>
               <Card.Body className="text-center">
-                <div className="text-5xl mb-4">⚡</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaBolt} size="xl" color="accent" label="Fast results" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Fast Results</h3>
                 <p className="text-slate-600">
                   Employees land jobs faster with our proven LinkedIn strategies, personalized
@@ -294,7 +323,7 @@ function Enterprise() {
             <Card variant="elevated" hoverable className="border-2 border-orange-500 relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <Badge variant="warning" size="lg" rounded>
-                  🔥 Recommended
+                  <Icon icon={FaFire} size="sm" className="inline mr-1" /> Recommended
                 </Badge>
               </div>
               <Card.Body className="pt-8">
@@ -391,7 +420,7 @@ function Enterprise() {
             {/* Step 1 */}
             <div className="text-center">
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">📅</span>
+                <Icon icon={FaCalendar} size="lg" color="primary" label="Schedule consultation" />
               </div>
               <div className="bg-blue-900 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-3 text-sm font-bold">
                 1
@@ -405,7 +434,7 @@ function Enterprise() {
             {/* Step 2 */}
             <div className="text-center">
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">💵</span>
+                <Icon icon={FaMoneyBillWave} size="lg" color="secondary" label="Choose pricing model" />
               </div>
               <div className="bg-blue-900 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-3 text-sm font-bold">
                 2
@@ -419,7 +448,7 @@ function Enterprise() {
             {/* Step 3 */}
             <div className="text-center">
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">📤</span>
+                <Icon icon={FaUpload} size="lg" color="primary" label="Submit employee data" />
               </div>
               <div className="bg-blue-900 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-3 text-sm font-bold">
                 3
@@ -433,7 +462,7 @@ function Enterprise() {
             {/* Step 4 */}
             <div className="text-center">
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">👥</span>
+                <Icon icon={FaUsers} size="lg" color="primary" label="Employees get coaching" />
               </div>
               <div className="bg-blue-900 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-3 text-sm font-bold">
                 4

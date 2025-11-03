@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaEnvelope, FaClock, FaCalendar, FaCheck, FaBolt } from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
@@ -7,6 +8,7 @@ import Input from '../components/ui/Input';
 import Textarea from '../components/ui/Textarea';
 import Card from '../components/ui/Card';
 import Alert from '../components/ui/Alert';
+import Icon from '../components/ui/Icon';
 import CalendlyModal from '../components/integrations/CalendlyModal';
 import { trackFormSubmission } from '../utils/analytics';
 
@@ -222,7 +224,9 @@ function Contact() {
               {/* Quick Book Card */}
               <Card variant="bordered">
                 <Card.Body>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">⚡ Quick Book</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    <Icon icon={FaBolt} size="sm" className="inline mr-1" /> Quick Book
+                  </h3>
                   <p className="text-slate-600 mb-4 text-sm">
                     Skip the form and book your consultation instantly
                   </p>
@@ -242,17 +246,23 @@ function Contact() {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">Contact Information</h3>
                   <div className="space-y-4 text-slate-600">
                     <div>
-                      <div className="font-semibold text-slate-900 mb-1">📧 Email</div>
+                      <div className="font-semibold text-slate-900 mb-1">
+                        <Icon icon={FaEnvelope} size="sm" className="inline mr-1" /> Email
+                      </div>
                       <a href="mailto:hello@pivotpath.com" className="text-blue-900 hover:underline">
                         hello@pivotpath.com
                       </a>
                     </div>
                     <div>
-                      <div className="font-semibold text-slate-900 mb-1">⏰ Response Time</div>
+                      <div className="font-semibold text-slate-900 mb-1">
+                        <Icon icon={FaClock} size="sm" className="inline mr-1" /> Response Time
+                      </div>
                       <p>Within 24 hours on weekdays</p>
                     </div>
                     <div>
-                      <div className="font-semibold text-slate-900 mb-1">📅 Availability</div>
+                      <div className="font-semibold text-slate-900 mb-1">
+                        <Icon icon={FaCalendar} size="sm" className="inline mr-1" /> Availability
+                      </div>
                       <p>Monday - Saturday</p>
                       <p className="text-sm">9am - 8pm EST</p>
                     </div>
@@ -265,23 +275,23 @@ function Contact() {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">What to Expect</h3>
                   <ul className="space-y-3 text-slate-600">
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
+                      <Icon icon={FaCheck} size="sm" className="text-green-600 mr-2 mt-1" />
                       <span>30-minute video call</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
+                      <Icon icon={FaCheck} size="sm" className="text-green-600 mr-2 mt-1" />
                       <span>Discuss your career goals</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
+                      <Icon icon={FaCheck} size="sm" className="text-green-600 mr-2 mt-1" />
                       <span>Get initial recommendations</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
+                      <Icon icon={FaCheck} size="sm" className="text-green-600 mr-2 mt-1" />
                       <span>Learn about services & pricing</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
+                      <Icon icon={FaCheck} size="sm" className="text-green-600 mr-2 mt-1" />
                       <span>No pressure or commitment</span>
                     </li>
                   </ul>
