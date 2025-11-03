@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaCalendar, FaComments, FaEdit, FaBullseye } from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
+import Icon from '../components/ui/Icon';
 import CalendlyModal from '../components/integrations/CalendlyModal';
 
 function HowItWorks() {
@@ -227,7 +229,9 @@ function HowItWorks() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card variant="bordered">
               <Card.Body>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">📅 Flexible Scheduling</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  <Icon icon={FaCalendar} size="sm" className="inline mr-2" /> Flexible Scheduling
+                </h3>
                 <p className="text-slate-600">
                   Sessions available Monday-Saturday, including evenings. Book times that work for
                   your schedule through our online calendar system.
@@ -237,7 +241,9 @@ function HowItWorks() {
 
             <Card variant="bordered">
               <Card.Body>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">💬 Direct Communication</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  <Icon icon={FaComments} size="sm" className="inline mr-2" /> Direct Communication
+                </h3>
                 <p className="text-slate-600">
                   Email me anytime with questions. I typically respond within 24 hours on weekdays.
                   No automated responses or chatbots.
@@ -247,7 +253,9 @@ function HowItWorks() {
 
             <Card variant="bordered">
               <Card.Body>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">📝 Actionable Homework</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  <Icon icon={FaEdit} size="sm" className="inline mr-2" /> Actionable Homework
+                </h3>
                 <p className="text-slate-600">
                   Between sessions, you'll have specific tasks to complete. These aren't busywork—they're
                   practical steps that move you closer to your goal.
@@ -257,7 +265,9 @@ function HowItWorks() {
 
             <Card variant="bordered">
               <Card.Body>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">🎯 Results-Focused</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  <Icon icon={FaBullseye} size="sm" className="inline mr-2" /> Results-Focused
+                </h3>
                 <p className="text-slate-600">
                   Every session has a clear objective. We track progress and adjust strategy as needed.
                   No fluff, just results.

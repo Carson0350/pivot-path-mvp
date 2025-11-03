@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaRocket, FaBullseye, FaBriefcase, FaDollarSign, FaGift } from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
+import Icon from '../components/ui/Icon';
 import CalendlyModal from '../components/integrations/CalendlyModal';
 import LeadMagnetDownload from '../components/forms/LeadMagnetDownload';
 
@@ -28,7 +30,7 @@ function Home() {
         <Container maxWidth="lg" centerContent>
           <div className="text-center">
             <Badge variant="secondary" size="md" rounded className="mb-6">
-              🚀 Career Transition Experts
+              <Icon icon={FaRocket} size="sm" className="inline mr-1" /> Career Transition Experts
             </Badge>
             <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
               Land Your Dream Tech Job
@@ -76,7 +78,9 @@ function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card variant="bordered" hoverable>
               <Card.Body>
-                <div className="text-4xl mb-4">🎯</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaBullseye} size="xl" color="primary" label="Expert guidance" />
+                </div>
                 <h3 className="text-xl font-bold text-blue-900 mb-3">Expert Guidance</h3>
                 <p className="text-slate-600 leading-relaxed">
                   Get personalized coaching from someone who&apos;s successfully navigated career
@@ -87,7 +91,9 @@ function Home() {
 
             <Card variant="bordered" hoverable>
               <Card.Body>
-                <div className="text-4xl mb-4">💼</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaBriefcase} size="xl" color="primary" label="LinkedIn mastery" />
+                </div>
                 <h3 className="text-xl font-bold text-cyan-600 mb-3">LinkedIn Mastery</h3>
                 <p className="text-slate-600 leading-relaxed">
                   Learn the exact strategies to optimize your profile, get noticed by recruiters,
@@ -98,7 +104,9 @@ function Home() {
 
             <Card variant="bordered" hoverable>
               <Card.Body>
-                <div className="text-4xl mb-4">💰</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaDollarSign} size="xl" color="accent" label="Affordable pricing" />
+                </div>
                 <h3 className="text-xl font-bold text-orange-500 mb-3">Affordable Pricing</h3>
                 <p className="text-slate-600 leading-relaxed">
                   Professional coaching without the $10K price tag. Get the same quality guidance at
@@ -259,7 +267,7 @@ function Home() {
         <Container maxWidth="md" centerContent>
           <div className="text-center mb-8">
             <Badge variant="secondary" size="md" rounded className="mb-4">
-              🎁 Free Resource
+              <Icon icon={FaGift} size="sm" className="inline mr-1" /> Free Resource
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Get Your Free LinkedIn Mastery Checklist

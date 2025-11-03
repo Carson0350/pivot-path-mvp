@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBuilding, FaFire } from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import Accordion from '../components/ui/Accordion';
+import Icon from '../components/ui/Icon';
 import CalendlyModal from '../components/integrations/CalendlyModal';
 
 function Services() {
@@ -125,7 +127,7 @@ function Services() {
             <Card variant="elevated" hoverable className="border-2 border-orange-500 relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <Badge variant="warning" size="lg" rounded>
-                  🔥 Best Value
+                  <Icon icon={FaFire} size="sm" className="inline mr-1" /> Best Value
                 </Badge>
               </div>
               <Card.Body className="pt-8">
@@ -242,6 +244,29 @@ function Services() {
             </p>
           </div>
           <Accordion items={faqItems} />
+        </Container>
+      </Section>
+
+      {/* Enterprise CTA Section */}
+      <Section background="blue" spacing="lg">
+        <Container maxWidth="lg" centerContent>
+          <div className="text-center">
+            <Badge variant="warning" size="md" rounded className="mb-4">
+              <Icon icon={FaBuilding} size="sm" className="inline mr-1" /> For Companies
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Need Outplacement Services for Your Team?
+            </h2>
+            <p className="text-lg text-slate-700 max-w-2xl mx-auto mb-8">
+              We offer flexible enterprise pricing for companies supporting employees through career
+              transitions. Pay-per-use or retainer options available.
+            </p>
+            <Link to="/enterprise">
+              <Button variant="primary" size="lg">
+                View Enterprise Solutions
+              </Button>
+            </Link>
+          </div>
         </Container>
       </Section>
 

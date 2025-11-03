@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBullseye, FaDollarSign, FaHandshake } from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
+import Icon from '../components/ui/Icon';
 import CalendlyModal from '../components/integrations/CalendlyModal';
 
 function About() {
@@ -88,7 +90,9 @@ function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card variant="bordered" hoverable>
               <Card.Body>
-                <div className="text-4xl mb-4">🎯</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaBullseye} size="xl" color="primary" label="Real results" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Real Results</h3>
                 <p className="text-slate-600 leading-relaxed">
                   No fluff, no theory. Just practical strategies that have worked for me and my
@@ -99,7 +103,9 @@ function About() {
 
             <Card variant="bordered" hoverable>
               <Card.Body>
-                <div className="text-4xl mb-4">💰</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaDollarSign} size="xl" color="accent" label="Affordable access" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Affordable Access</h3>
                 <p className="text-slate-600 leading-relaxed">
                   Career coaching shouldn't cost $10K. Quality guidance should be accessible to
@@ -110,7 +116,9 @@ function About() {
 
             <Card variant="bordered" hoverable>
               <Card.Body>
-                <div className="text-4xl mb-4">🤝</div>
+                <div className="flex justify-center mb-4">
+                  <Icon icon={FaHandshake} size="xl" color="primary" label="Honest feedback" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Honest Feedback</h3>
                 <p className="text-slate-600 leading-relaxed">
                   I'll tell you what you need to hear, not what you want to hear. Honest, direct

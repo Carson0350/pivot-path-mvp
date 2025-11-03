@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import { FaHandPaper, FaBriefcase, FaBullseye } from 'react-icons/fa';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
+import Icon from '../components/ui/Icon';
 
 function NotFound() {
   return (
@@ -53,7 +55,9 @@ function NotFound() {
             <Link to="/services" className="block">
               <Card variant="bordered" hoverable>
                 <Card.Body>
-                  <div className="text-4xl mb-3">💼</div>
+                  <div className="flex justify-center mb-3">
+                    <Icon icon={FaBriefcase} size="xl" color="primary" label="Our services" />
+                  </div>
                   <h4 className="text-xl font-bold text-slate-900 mb-2">Our Services</h4>
                   <p className="text-slate-600">
                     Explore our coaching packages and pricing options.
@@ -65,7 +69,9 @@ function NotFound() {
             <Link to="/about" className="block">
               <Card variant="bordered" hoverable>
                 <Card.Body>
-                  <div className="text-4xl mb-3">👋</div>
+                  <div className="flex justify-center mb-3">
+                    <Icon icon={FaHandPaper} size="xl" color="primary" label="About us" />
+                  </div>
                   <h4 className="text-xl font-bold text-slate-900 mb-2">About Us</h4>
                   <p className="text-slate-600">
                     Learn about our founder and mission to help you succeed.
@@ -77,7 +83,9 @@ function NotFound() {
             <Link to="/how-it-works" className="block">
               <Card variant="bordered" hoverable>
                 <Card.Body>
-                  <div className="text-4xl mb-3">🎯</div>
+                  <div className="flex justify-center mb-3">
+                    <Icon icon={FaBullseye} size="xl" color="primary" label="How it works" />
+                  </div>
                   <h4 className="text-xl font-bold text-slate-900 mb-2">How It Works</h4>
                   <p className="text-slate-600">
                     Understand our process from booking to landing your job.

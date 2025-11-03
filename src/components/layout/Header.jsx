@@ -34,6 +34,12 @@ function Header() {
               Services
             </Link>
             <Link
+              to="/enterprise"
+              className="text-slate-700 hover:text-blue-900 font-medium transition-colors"
+            >
+              Enterprise
+            </Link>
+            <Link
               to="/about"
               className="text-slate-700 hover:text-blue-900 font-medium transition-colors"
             >
@@ -116,6 +122,13 @@ function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
+            </Link>
+            <Link
+              to="/enterprise"
+              className="block px-4 py-2 text-slate-700 hover:bg-slate-50 hover:text-blue-900 rounded-md font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Enterprise
             </Link>
             <Link
               to="/about"
