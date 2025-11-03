@@ -18,7 +18,7 @@ import { trackEvent } from '../../utils/analytics';
  * @param {string} source - Source location for analytics
  */
 const LeadMagnetDownload = ({ 
-  pdfUrl = '/downloads/LinkedIn_Revamp_Checklist.pdf',
+  pdfUrl = '/pivot-path-mvp/downloads/LinkedIn_Revamp_Checklist.pdf',
   pdfFileName = 'LinkedIn_Revamp_Checklist.pdf',
   source = 'unknown'
 }) => {
