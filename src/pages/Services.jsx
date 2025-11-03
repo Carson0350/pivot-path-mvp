@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
@@ -5,8 +6,21 @@ import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import Accordion from '../components/ui/Accordion';
+import CalendlyModal from '../components/integrations/CalendlyModal';
 
 function Services() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [calendlySource, setCalendlySource] = useState('');
+
+  const openCalendly = (source) => {
+    setCalendlySource(source);
+    setIsCalendlyOpen(true);
+  };
+
+  const closeCalendly = () => {
+    setIsCalendlyOpen(false);
+  };
+
   const faqItems = [
     {
       title: 'How quickly will I see results?',
@@ -240,17 +254,26 @@ function Services() {
               Schedule a free 30-minute consultation to discuss your career goals and find the right
               package for you.
             </p>
-            <Link to="/contact">
-              <Button variant="secondary" size="lg">
-                Schedule Free Consultation
-              </Button>
-            </Link>
+            <Button 
+              variant="secondary" 
+              size="lg"
+              onClick={() => openCalendly('services-cta')}
+            >
+              Schedule Free Consultation
+            </Button>
             <p className="text-slate-400 text-sm mt-6">
               No pressure, no commitment. Just a friendly conversation about your career.
             </p>
           </div>
         </Container>
       </Section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={closeCalendly}
+        source={calendlySource}
+      />
     </>
   );
 }

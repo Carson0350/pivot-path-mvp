@@ -1,11 +1,25 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
+import CalendlyModal from '../components/integrations/CalendlyModal';
 
 function Home() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [calendlySource, setCalendlySource] = useState('');
+
+  const openCalendly = (source) => {
+    setCalendlySource(source);
+    setIsCalendlyOpen(true);
+  };
+
+  const closeCalendly = () => {
+    setIsCalendlyOpen(false);
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -25,11 +39,13 @@ function Home() {
               costs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/contact">
-                <Button variant="primary" size="lg">
-                  Schedule Free Consultation
-                </Button>
-              </Link>
+              <Button 
+                variant="primary" 
+                size="lg"
+                onClick={() => openCalendly('hero')}
+              >
+                Schedule Free Consultation
+              </Button>
               <Link to="/services">
                 <Button variant="outline" size="lg">
                   View Services & Pricing
@@ -373,6 +389,13 @@ function Home() {
           </div>
         </Container>
       </Section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={closeCalendly}
+        source={calendlySource}
+      />
     </>
   );
 }

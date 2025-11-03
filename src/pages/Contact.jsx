@@ -7,10 +7,12 @@ import Input from '../components/ui/Input';
 import Textarea from '../components/ui/Textarea';
 import Card from '../components/ui/Card';
 import Alert from '../components/ui/Alert';
+import CalendlyModal from '../components/integrations/CalendlyModal';
 import { trackFormSubmission } from '../utils/analytics';
 
 function Contact() {
   const navigate = useNavigate();
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -190,6 +192,24 @@ function Contact() {
 
             {/* Contact Info Sidebar */}
             <div className="space-y-6">
+              {/* Quick Book Card */}
+              <Card variant="bordered">
+                <Card.Body>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">⚡ Quick Book</h3>
+                  <p className="text-slate-600 mb-4 text-sm">
+                    Skip the form and book your consultation instantly
+                  </p>
+                  <Button
+                    variant="primary"
+                    size="md"
+                    fullWidth
+                    onClick={() => setIsCalendlyOpen(true)}
+                  >
+                    Book Now with Calendly
+                  </Button>
+                </Card.Body>
+              </Card>
+
               <Card variant="bordered">
                 <Card.Body>
                   <h3 className="text-xl font-bold text-slate-900 mb-4">Contact Information</h3>
@@ -244,6 +264,13 @@ function Contact() {
           </div>
         </Container>
       </Section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+        source="contact-quick-book"
+      />
     </>
   );
 }

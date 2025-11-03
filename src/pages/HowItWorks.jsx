@@ -1,11 +1,25 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Section from '../components/ui/Section';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
+import CalendlyModal from '../components/integrations/CalendlyModal';
 
 function HowItWorks() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [calendlySource, setCalendlySource] = useState('');
+
+  const openCalendly = (source) => {
+    setCalendlySource(source);
+    setIsCalendlyOpen(true);
+  };
+
+  const closeCalendly = () => {
+    setIsCalendlyOpen(false);
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -262,17 +276,26 @@ function HowItWorks() {
             <p className="text-slate-300 text-lg mb-8">
               Book your free consultation and let's create a plan to land your dream job.
             </p>
-            <Link to="/contact">
-              <Button variant="secondary" size="lg">
-                Schedule Free Consultation
-              </Button>
-            </Link>
+            <Button 
+              variant="secondary" 
+              size="lg"
+              onClick={() => openCalendly('how-it-works-cta')}
+            >
+              Schedule Free Consultation
+            </Button>
             <p className="text-slate-400 text-sm mt-6">
               Most clients land interviews within 3-4 weeks.
             </p>
           </div>
         </Container>
       </Section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={closeCalendly}
+        source={calendlySource}
+      />
     </>
   );
 }

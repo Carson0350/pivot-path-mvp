@@ -80,3 +80,28 @@ export const trackServiceSelection = (serviceName, price = '') => {
     price: price,
   });
 };
+
+/**
+ * Track Calendly modal opened
+ * @param {string} source - Source page/button that triggered modal
+ */
+export const trackCalendlyModalOpened = (source = 'unknown') => {
+  trackEvent('calendly_modal_opened', {
+    source: source,
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Track Calendly booking completed
+ * @param {string} source - Source page/button that triggered modal
+ * @param {object} eventData - Event data from Calendly
+ */
+export const trackCalendlyBookingCompleted = (source = 'unknown', eventData = {}) => {
+  trackEvent('calendly_booking_completed', {
+    source: source,
+    event_uri: eventData.event_uri || '',
+    invitee_uri: eventData.invitee_uri || '',
+    timestamp: new Date().toISOString(),
+  });
+};
